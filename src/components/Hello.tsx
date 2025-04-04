@@ -1,16 +1,12 @@
-import React from 'react';
+import { useNavigate, } from 'react-router-dom';
 
-interface HelloProps {
-  name?: string;
-}
-
-const Hello: React.FC<HelloProps> = ({ name = 'World' }) => {
+export default function Hello() {
+  const navigate = useNavigate();
   return (
-    <div className="hello-container">
-      <h2>Hello, {name}!</h2>
-      <p>This is a federated module component.</p>
+    <div>
+      <h2>Remote Component</h2>
+      <p>Current path: {location.pathname}</p>
+      <button onClick={() => navigate('/contact')}>Go to contact</button>
     </div>
   );
-};
-
-export default Hello; 
+}
